@@ -1,0 +1,6 @@
+There weren't any issues that I ran into.
+
+Through this assignment, I learned how to use the camera and lookat functions.
+
+The only remaining bug is that if there are no inputs for the points and you press the animate button, 
+then the program will break and won't work for any inputted points. It require you to refresh the page in order to fix it.

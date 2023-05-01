@@ -1,0 +1,41 @@
+body {
+    margin-top: 10px;
+    font-family: Arial;
+}
+
+.tablinks {
+    min-width: 100px;
+    width:100%;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+.tabcontent {
+    display: none;
+    border-top: none;
+}
+
+#byte_content {
+    margin: 5px 0;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#byte_range { 
+    margin-top: 5px; 
+}
+
+.container {
+    margin-left: 10px;
+}
+
+.row {
+    margin-left: 5px;
+}
+
+textarea {
+    width: 100%;
+    min-width: 100px;
+}

@@ -1,0 +1,4 @@
+The only issue that I had was getting the scaling and rotation for the polyline working.
+From this I learned how to save as json or save as an image.
+The only remaining bug that I found was that the line isn't properly detected during translation/rotation.
+Additional functionality included was a color picker.

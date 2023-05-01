@@ -1,0 +1,7 @@
+An issue that I got stuck on for the longest time was that I wasn't able to get the fragment shader and vertex shader to work.
+To fix this, I had to use another method of doing the fragment shader and vertex shader which was to pass it as var rather than
+a const and then I didn't have to use the createShader function that I made in the first program rather I could use the one from
+the library. After that there wasn't anything else that really gave me problems as I had some experience using sliders and inputs.
+
+As of now, the only bug that I have is that you are able to enter in plus and minus into the RGB values but it doesn't really affect it
+as it just treats them as a value of zero.

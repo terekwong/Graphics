@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>2D Sierpinski Gasket</title>
+
+<h1></h1>
+    <div class="slidecontainer">
+        <label><b>Number of points(500-5000): </b><span id="pointValueDis"></span><br></label>
+        <input type="range" min="500" max="10000" value="5000" class="slider" id="pointValue">
+        <p></p>
+    </div>
+
+    <form method="post">
+        <label><b>RGB (0-255): </b></label>
+        <input type="number" id="redValue" value="255" min="0" max="255">
+        <input type="number" id="greenValue" value="0" min="0" max="255">
+        <input type="number" id="blueValue" value="0" min="0" max="255">
+        <p></p>
+    </form>
+
+    <div class="slidecontainer">
+        <label><b>Size(10-100): </b><span id="sizeValue"></span><br></label>
+        <input type="range" min="10" max="100" value="100" class="slider" id="sizeSlider">
+        <p></p>
+    </div>
+
+    <div class="randomToggle">
+        <label><b>Random mode</b>(Will overwrite the settings above): </label>
+        <input class="randomSwitch" type="checkbox">
+        <p></p>
+    </div>
+
+    <div class="animateToggle">
+        <label><b>Animate: </b></label>
+        <button id="aBtn" onclick="animateToggle();">Play</button>
+        <p></p>
+    </div>
+
+
+    <div class="slider">
+        <label><b>Speed: </b><span id="speedValue"></span>ms<br></label>
+        <input type="range" min="50" max="500" value="250" class="slider" id="speedSlider">
+        <p></p>
+    </div>
+
+    <div>
+        <button id="gBtn" onclick="generate();">Generate</button>
+        <button id="cBtn" onclick="clearCanvas();">Clear</button>
+        <p></p>
+        <label>Status:</label>
+    </div>
+
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="gasket1.js"></script>
+</head>
+
+<body>
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>

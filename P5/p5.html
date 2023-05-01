@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        font-family: Arial;
+    }
+    
+    .tab button.active {
+        background-color: #ccc;
+    }
+    
+    .tabcontent {
+        display: none;
+        border-top: none;
+    }
+</style>
+
+<p>Select the 2D method:</p>
+
+<div class="tab">
+    <button class="tablinks" onclick="openEdit(event, 'DDA Line')">DDA Line</button>
+    <button class="tablinks" onclick="openEdit(event, 'Midpoint Line')">Midpoint Line</button>
+    <button class="tablinks" onclick="openEdit(event, 'Midpoint Circle')">Midpoint Circle</button>
+    <button class="tablinks" onclick="openEdit(event, 'Midpoint Ellipse')">Midpoint Ellipse</button>
+    <button class="tablinks" onclick="openEdit(event, 'Bezier Curve')">Bezier Curve</button>
+    <button class="tablinks" onclick="openEdit(event, 'Hermite Curve')">Hermite Curve</button>
+    <button class="tablinks" onclick="openEdit(event, 'B-Spline Curve')">B-Spline Curve</button>
+</div>
+<p></p>
+
+<div id="DDA Line" class="tabcontent">
+    <div class="point1">
+        <label>Point 1 (x0, y0):</label>
+    </div>
+    <input type="number" id="ddax0" name="1" min=0 max=512 value=0>
+    <input type="number" id="dday0" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 2 (x1, y1):</label>
+    </div>
+    <input type="number" id="ddax1" name="2" min=0 max=512 value=0>
+    <input type="number" id="dday1" name="2" min=0 max=512 value=0>
+
+    <p></p>
+
+    <div>
+        <button onclick="draw(0);">Draw</button>
+        <button onclick="draw(7);">Random</button>
+    </div>
+</div>
+
+<div id="Midpoint Line" class="tabcontent">
+    <div class="point1">
+        <label>Point 1 (x0, y0):</label>
+    </div>
+    <input type="number" id="mlx0" name="1" min=0 max=512 value=0>
+    <input type="number" id="mly0" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 2 (x1, y1):</label>
+    </div>
+    <input type="number" id="mlx1" name="2" min=0 max=512 value=0>
+    <input type="number" id="mly1" name="2" min=0 max=512 value=0>
+
+    <p></p>
+
+    <div>
+        <button onclick="draw(1);">Draw</button>
+        <button onclick="draw(8);">Random</button>
+    </div>
+</div>
+
+<div id="Midpoint Circle" class="tabcontent">
+    <div class="point1">
+        <label>Origin(x, y):</label>
+    </div>
+    <input type="number" id="mcx" name="1" min=0 max=512 value=0>
+    <input type="number" id="mcy" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Radius:</label>
+    </div>
+    <input type="number" id="mcr" name="2" min=0 max=512 value=0>
+
+    <p></p>
+
+    <div>
+        <button onclick="draw(2);">Draw</button>
+        <button onclick="draw(9);">Random</button>
+    </div>
+</div>
+
+<div id="Midpoint Ellipse" class="tabcontent">
+    <div class="point1">
+        <label>Origin(x, y):</label>
+    </div>
+    <input type="number" id="mex" name="1" min=0 max=512 value=0>
+    <input type="number" id="mey" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Radius(x radius, y radius):</label>
+    </div>
+    <input type="number" id="merx" name="2" min=0 max=512 value=0>
+    <input type="number" id="mery" name="2" min=0 max=512 value=0>
+
+    <p></p>
+
+    <div>
+        <button onclick="draw(3);">Draw</button>
+        <button onclick="draw(10);">Random</button>
+    </div>
+</div>
+
+<div id="Bezier Curve" class="tabcontent">
+    <div class="point1">
+        <label>Point 1 (x0, y0):</label>
+    </div>
+    <input type="number" id="bcx0" name="1" min=0 max=512 value=0>
+    <input type="number" id="bcy0" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 2 (x1, y1):</label>
+    </div>
+    <input type="number" id="bcx1" name="2" min=0 max=512 value=0>
+    <input type="number" id="bcy1" name="2" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 3 (x2, y2):</label>
+    </div>
+    <input type="number" id="bcx2" name="2" min=0 max=512 value=0>
+    <input type="number" id="bcy2" name="2" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 4 (x3, y3):</label>
+    </div>
+    <input type="number" id="bcx3" name="2" min=0 max=512 value=0>
+    <input type="number" id="bcy3" name="2" min=0 max=512 value=0>
+
+    <div>
+        <label>Smoothness(higher is smoother)</label>
+        <input type="number" id="bcn" min=2 max=100 value=10>
+    </div>
+
+    <p></p>
+
+    <button onclick="draw(4);">Draw</button>
+    <button onclick="draw(11);">Random</button>
+</div>
+
+<div id="Hermite Curve" class="tabcontent">
+    <div class="point1">
+        <label>Point 1 (x0, y0):</label>
+    </div>
+    <input type="number" id="hcx0" name="1" min=0 max=512 value=0>
+    <input type="number" id="hcy0" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 2 (x1, y1):</label>
+    </div>
+    <input type="number" id="hcx1" name="2" min=0 max=512 value=0>
+    <input type="number" id="hcy1" name="2" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 3 (x2, y2):</label>
+    </div>
+    <input type="number" id="hcx2" name="2" min=0 max=512 value=0>
+    <input type="number" id="hcy2" name="2" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 4 (x3, y3):</label>
+    </div>
+    <input type="number" id="hcx3" name="2" min=0 max=512 value=0>
+    <input type="number" id="hcy3" name="2" min=0 max=512 value=0>
+
+    <div>
+        <label>Smoothness(higher is smoother)</label>
+        <input type="number" id="hcn" min=2 max=100 value=10>
+    </div>
+
+    <p></p>
+
+    <button onclick="draw(5);">Draw</button>
+    <button onclick="draw(12);">Random</button>
+</div>
+
+<div id="B-Spline Curve" class="tabcontent">
+    <div class="point1">
+        <label>Point 1 (x0, y0):</label>
+    </div>
+    <input type="number" id="scx0" name="1" min=0 max=512 value=0>
+    <input type="number" id="scy0" name="1" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 2 (x1, y1):</label>
+    </div>
+    <input type="number" id="scx1" name="2" min=0 max=512 value=0>
+    <input type="number" id="scy1" name="2" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 3 (x2, y2):</label>
+    </div>
+    <input type="number" id="scx2" name="2" min=0 max=512 value=0>
+    <input type="number" id="scy2" name="2" min=0 max=512 value=0>
+    <div class="point2">
+        <label>Point 4 (x3, y3):</label>
+    </div>
+    <input type="number" id="scx3" name="2" min=0 max=512 value=0>
+    <input type="number" id="scy3" name="2" min=0 max=512 value=0>
+
+    <div>
+        <label>Smoothness(higher is smoother)</label>
+        <input type="number" id="scn" min=2 max=100 value=10>
+    </div>
+
+    <p></p>
+
+    <button onclick="draw(6);">Draw</button>
+    <button onclick="draw(13);">Random</button>
+</div>
+
+<div class="buttons">
+    <input type="color" id="html5colorpicker" value="#ff0000" style="width:41px; height:17px">
+    <button onclick="clearBackground();">Clear</button>
+</div>
+
+<p></p>
+
+<body>
+    <canvas id="canvas" width="512" height="512" style="border:1px solid #000000;">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+    <script type="text/javascript" src="p5.js"></script>
+
+</body>
+
+</html>

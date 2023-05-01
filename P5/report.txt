@@ -1,0 +1,4 @@
+An issue that I faced was that some lines would'nt graph when changing the midpoint line to handle all slopes.
+By doing this program, I was able to learn about the different algorithms and curves used to graph different shapes and lines.
+A bug that still remains is that there is an issue with some of the midpoint line graphs for certain points.
+Additional functionality is a random button, color picker, and clear button for the canvas.
